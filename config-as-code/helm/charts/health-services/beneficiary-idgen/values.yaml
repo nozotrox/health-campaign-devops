@@ -114,12 +114,16 @@ env: |
     value: {{ index .Values "limit-id-user-device-per-day" | quote }}
   - name: LIMIT_ID_USER_DEVICE_TOTAL
     value: {{ index .Values "limit-id-user-device-total" | quote }}
+  - name: LIMIT_ID_USER_DEVICE_PER_DAY_EXPIRE_DAYS
+    value: {{ index .Values "limit-id-user-device-per-day-expire-days" | quote }}
+  - name: LIMIT_ID_USER_DEVICE_TOTAL_EXPIRE_DAYS
+    value: {{ index .Values "limit-id-user-device-total-expire-days" | quote }}
   - name: ID_POOL_GENERATION_MAX_RECORDS_PER_PERSIST_BATCH
     value: {{ index .Values "id-pool-generation-max-records-per-persist-batch" | quote }}
   - name: ID_POOL_GENERATION_MAX_SIZE
     value: {{ index .Values "id-pool-generation-max-size" | quote }}
-  - name: ID_DISPATCH_RETRIEVAL_LIMIT_TO_TODAY_ENABLED
-    value: {{ index .Values "id-dispatch-retrieval-limit-to-today-enabled" | quote }}
+  - name: ID_DISPATCH_RETRIEVAL_RESTRICT_TO_TODAY_ENABLED
+    value: {{ index .Values "id-dispatch-retrieval-restrict-to-today-enabled" | quote }}
   - name: ID_VALIDATION_ENABLED
     value: {{ .Values.idPool.validation.enabled | quote }}
   - name: SPRING_DATA_REDIS_DEFAULT_REPLENISHRATE
