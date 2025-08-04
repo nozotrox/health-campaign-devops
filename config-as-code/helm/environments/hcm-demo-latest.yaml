@@ -75,7 +75,7 @@ cluster-configs:
               egov-filestore: "http://egov-filestore:8080/"
               egov-localization: "http://egov-localization:8080/"
               egov-idgen: "http://egov-idgen:8080/"
-              beneficiary-idgen: 'http://beneficiary-idgen.health:8080/'
+              beneficiary-idgen: 'http://beneficiary-idgen:8080/'
               egov-otp: "http://egov-otp:8080/"
               egov-mdms-service: "http://mdms-v2:8080/"
               mdms-v2: "http://mdms-v2:8080/"
