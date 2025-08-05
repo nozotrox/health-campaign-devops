@@ -113,6 +113,7 @@ cluster-configs:
               health-expense: 'http://health-expense.egov:8080/'
               health-expense-calculator: 'http://health-expense-calculator.egov:8080/'
               health-muster-roll: 'http://health-muster-roll.egov:8080/'
+              referralmanagement: 'http://referralmanagement.egov:8080/'
 
               
 employee:
