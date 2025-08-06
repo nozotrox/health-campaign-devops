@@ -27,7 +27,8 @@ healthChecks:
   readinessProbePath: "/referralmanagement/health"
 appType: "java-spring"
 tracing-enabled: true
-heap: "-Xmx192m -Xms192m"
+memory_limits: 768Mi
+heap: "-Xmx384m -Xms384m"
 java-args: ""
 persist-yml-path: "file:///work-dir/health-campaign-config/egov-persister/referral-management-persister.yml"
 indexer-yml-path: "file:///work-dir/health-campaign-config/egov-indexer/referral-management-indexer.yml"
@@ -184,6 +185,18 @@ env: |
     value: "update-referral-bulk-topic"
   - name: REFERRALMANAGEMENT.REFERRAL.CONSUMER.BULK.DELETE.TOPIC
     value: "delete-referral-bulk-topic"
+  - name: REFERRALMANAGEMENT.HFREFERRAL.KAFKA.CREATE.TOPIC
+    value: "save-hfreferral-topic"
+  - name: REFERRALMANAGEMENT.HFREFERRAL.KAFKA.UPDATE.TOPIC
+    value: "update-hfreferral-topic"
+  - name: REFERRALMANAGEMENT.HFREFERRAL.KAFKA.DELETE.TOPIC
+    value: "delete-hfreferral-topic"
+  - name: REFERRALMANAGEMENT.HFREFERRAL.CONSUMER.BULK.CREATE.TOPIC
+    value: "save-hfreferral-bulk-topic"
+  - name: REFERRALMANAGEMENT.HFREFERRAL.CONSUMER.BULK.UPDATE.TOPIC
+    value: "update-hfreferral-bulk-topic"
+  - name: REFERRALMANAGEMENT.HFREFERRAL.CONSUMER.BULK.DELETE.TOPIC
+    value: "delete-hfreferral-bulk-topic"
   - name: SEARCH_API_LIMIT
     value: "1000"
   - name: REFERRALMANAGEMENT.DOCUMENT.ID.VERIFICATION.REQUIRED
@@ -211,6 +224,10 @@ env: |
     value: "ADMIN"
   - name: EGOV_LOCATION_CODE_QUERY_PARAM
     value: "code"
+  - name: EGOV_SEARCH_PROJECT_FACILITY_URL
+    value: "/project/facility/v1/_search"
+  - name: EGOV_SEARCH_PROJECT_URL
+    value: "/project/v1/_search"
   - name: EGOV_SERVICE_REQUEST_HOST
     valueFrom:
       configMapKeyRef:
