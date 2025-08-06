@@ -280,14 +280,14 @@ beneficiary-idgen:
 
 
 household:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   egov-mdms-service-host-key: 'mdms-service-v2'
   egov-mdms-service-endpoint-key: "/mdms-v2/v1/_search"
 
 service-request:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
 
@@ -601,7 +601,7 @@ egov-workflow-v2:
   pdf-link: "/download/epass?tenantId={TENANTID}&ids={UUID}"
 
 egov-hrms:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   java-args: -Dspring.profiles.active=monitoring
@@ -657,14 +657,14 @@ egov-accesscontrol:
 
 facility:
   central-instance-build: true
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-enabled: false
   replicas: 3
   heap: '-Xmx512m -Xms256m'
   memory_limits: 512Mi
 
 project:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   replicas: 3
@@ -673,7 +673,7 @@ project:
 
 
 individual:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   replicas: 2
@@ -686,7 +686,7 @@ individual:
   egov-beneficiary-idgen-idpool-update-path: "beneficiary-idgen/id/id_pool/_update"
 
 product:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   heap: "-Xmx512m -Xms256m"
@@ -696,7 +696,7 @@ product:
 
 referralmanagement:
   central-instance-build: true
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-enabled: false
   heap: "-Xmx512m -Xms512m"
   memory_limits: 1024Mi
@@ -706,17 +706,17 @@ referralmanagement:
 
 pgr-services:
   central-instance-build: true
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-enabled: false
 
 stock:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
 
 
 project-factory:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   logLevel: 'debug'
@@ -758,7 +758,7 @@ transformer:
   egov-localization-module-name: "hcm-boundary-MICROPLAN"
 
 health-attendance:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   heap: "-Xmx256m -Xms256m"
@@ -779,7 +779,7 @@ health-expense-calculator:
   egov-musterroll-search-endpoint: "/health-muster-roll/v1/_search"
 
 health-expense:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   tracing-enabled: true
@@ -792,7 +792,7 @@ health-expense:
   egov-mdms-v2-search-endpoint: "/mdms-v2/v1/_search"
 
 health-muster-roll:
-  central-instance-name: health
+  central-instance-name: egov
   central-instance-build: true
   central-instance-enabled: false
   tracing-enabled: true

@@ -9,7 +9,7 @@ replicas: 1
 httpPort: 8080
 appType: ""
 
-central-instance-name: health
+central-instance-name: egov
 central-instance-build: false
 central-instance-enabled: false
 db-schema-names: "public"
@@ -50,11 +50,11 @@ initContainers:
               name: egov-config
               key: db-url-no-schema
         - name: "SCHEMA_NAME"
-          {{- if and (index .Values "central-instance-build") (index .Values "central-instance-enabled") }}
-          value: "{{ index .Values "db-schema-names" }}"
-          {{- else }}
+        {{- if and (index .Values "central-instance-build") (index .Values "central-instance-enabled") }}
+          value: {{ index .Values "db-schema-names" | quote }}
+        {{- else }}   
           value: "public"
-          {{- end }}
+        {{- end }}
         - name: "SCHEMA_TABLE"
           value: {{ .Values.initContainers.dbMigration.schemaTable | quote }}              
         - name: "FLYWAY_USER"
