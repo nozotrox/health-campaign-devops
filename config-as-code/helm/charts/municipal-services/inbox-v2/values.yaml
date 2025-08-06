@@ -10,12 +10,7 @@ ingress:
   context: "inbox-v2"
 
 # Init Containers Configs
-initContainers:
-  dbMigration:
-    enabled: true
-    schemaTable: "inbox_v2_schema"
-    image:
-      repository: "inbox-v2-db"
+initContainers: {}
 
 # Container Configs
 image:
@@ -28,7 +23,7 @@ healthChecks:
 appType: "java-spring"
 tracing-enabled: true
 heap: "-Xmx256m -Xms256m"
-java-args: "-Dspring.profiles.active=monitoring"
+java-args: ""
 
 # Additional Container Envs
 env: |
