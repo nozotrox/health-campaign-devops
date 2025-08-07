@@ -376,7 +376,7 @@ audit-service:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/health-campaign-config"     ##### Change repo url with Your fork Repo url
-      branch: "HCM-v1.7-DEMO"  
+      branch: "HCM-v1.8-DEMO"  
 
 egov-pg-service:
   axis: true
@@ -428,21 +428,21 @@ egov-searcher:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/health-campaign-config"     ##### Change repo url with Your fork Repo url
-      branch: "HCM-v1.7-DEMO"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "HCM-v1.8-DEMO"                                   ##### Change repo branch with Your fork Repo branch
 
 dashboard-analytics:
   config-schema-paths: "file:///work-dir/health-campaign-config/egov-dss-dashboards/dashboard-analytics/*.json"
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/health-campaign-config"      ##### Change repo url with Your fork Repo url
-      branch: "HCM-v1.7-DEMO"                                    ##### Change repo branch with Your fork Repo branch
+      branch: "HCM-v1.8-DEMO"                                    ##### Change repo branch with Your fork Repo branch
 
 dashboard-ingest:
   config-schema-paths: "file:///work-dir/health-campaign-config/egov-dss-dashboards/dashboard-ingest/*.json"
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/health-campaign-config"      ##### Change repo url with Your fork Repo url
-      branch: "HCM-v1.7-DEMO"
+      branch: "HCM-v1.8-DEMO"
 
 # reportinfra >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 report:
@@ -452,14 +452,14 @@ report:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/health-campaign-config"     ##### Change repo url with Your fork Repo url
-      branch: "HCM-v1.7-DEMO"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "HCM-v1.8-DEMO"                                   ##### Change repo branch with Your fork Repo branch
   report-locationsfile-path: "file:///work-dir/health-campaign-config/reports/reportFileLocationsv1.txt"
 
 pdf-service:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/health-campaign-config"     ##### Change repo url with Your fork Repo url
-      branch: "HCM-v1.7-DEMO"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "HCM-v1.8-DEMO"                                   ##### Change repo branch with Your fork Repo branch
   data-config-urls: "file:///work-dir/health-campaign-config/pdf-service/data-config/health-bill-payment.json"
   format-config-urls: "file:///work-dir/health-campaign-config/pdf-service/format-config/health-bill-payment.json"
 
