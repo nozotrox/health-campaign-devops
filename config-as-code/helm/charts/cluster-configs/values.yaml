@@ -104,7 +104,7 @@ cluster-configs:
       name: chatbot
     
     project-factory: 
-      namespace: [ health ]
+      namespace: [ egov ]
       name: project-factory
     
     covid-chatbot:
