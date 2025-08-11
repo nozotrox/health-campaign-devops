@@ -8,7 +8,7 @@ namespace: egov
 # Ingress Configs
 ingress:
   namespace: egov
-  enabled: false
+  enabled: true
   zuul: false
   context: "resource-generator"
 
