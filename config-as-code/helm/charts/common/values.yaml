@@ -130,6 +130,8 @@ resources: |
   limits:
     memory: {{ .Values.memory_limits | quote }}
   {{- end -}}
+java_debug_enabled: false
+java_debug_port: 5005
 ## Allows specification of additional environment variables
 extraEnv:
   java: |
