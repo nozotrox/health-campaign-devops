@@ -568,9 +568,13 @@ plan-service:
   egov-mdms-service-endpoint-key: "/mdms-v2/v1/_search"
   egov-mdms-service-v2-endpoint-key: "/mdms-v2/v2/_search"
   kafka-producer-max-request-size: "4000000"
+  heap: '-Xmx512m -Xms256m'
+  memory_limits: 512Mi
 
 census-service:
   kafka-producer-max-request-size: "4000000"
+  heap: '-Xmx512m -Xms256m'
+  memory_limits: 512Mi
 
 resource-estimation-service:
   egov-mdms-service-host-key: 'mdms-service-v2'
@@ -581,6 +585,8 @@ resource-generator:
   egov-mdms-service-host-key: 'mdms-service-v2'
   egov-mdms-service-endpoint-key: "/mdms-v2/v1/_search"
   egov-mdms-service-v2-endpoint-key: "/mdms-v2/v2/_search"
+  memory_limits: 1Gi
+  heap: '-Xmx768m -Xms512m'
 
 transformer:
   egov-boundary-hierarchy-name: "MICROPLAN"
