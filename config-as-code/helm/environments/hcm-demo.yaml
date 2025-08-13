@@ -570,6 +570,8 @@ plan-service:
   kafka-producer-max-request-size: "4000000"
   heap: '-Xmx768m -Xms512m'
   memory_limits: 1Gi
+  java_debug_enabled: true
+  java_debug_port: 5005
 
 census-service:
   kafka-producer-max-request-size: "4000000"
