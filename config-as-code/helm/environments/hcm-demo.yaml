@@ -573,8 +573,8 @@ plan-service:
 
 census-service:
   kafka-producer-max-request-size: "4000000"
-  heap: '-Xmx768m -Xms512m'
-  memory_limits: 1Gi
+  heap: '-Xmx512m -Xms256m'
+  memory_limits: 512Mi
 
 resource-estimation-service:
   egov-mdms-service-host-key: 'mdms-service-v2'
