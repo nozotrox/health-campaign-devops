@@ -130,8 +130,6 @@ resources: |
   limits:
     memory: {{ .Values.memory_limits | quote }}
   {{- end -}}
-java_debug_enabled: false
-java_debug_port: 5005
 ## Allows specification of additional environment variables
 extraEnv:
   java: |
@@ -152,12 +150,16 @@ extraEnv:
         valueFrom:
           configMapKeyRef:
             name: egov-config
-            key: timezone              
+            key: timezone      
       - name: FLYWAY_URL
         valueFrom:
           configMapKeyRef:
             name: egov-config
             key: db-url
+      - name: JAVA_ENABLE_DEBUG
+        value: "FALSE"  
+     - name: JAVA_DEBUG_PORT
+       value: 5005
       - name: SPRING_DATASOURCE_USERNAME
         valueFrom:
           secretKeyRef:
