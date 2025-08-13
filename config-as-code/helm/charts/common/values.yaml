@@ -150,7 +150,7 @@ extraEnv:
         valueFrom:
           configMapKeyRef:
             name: egov-config
-            key: timezone              
+            key: timezone
       - name: FLYWAY_URL
         valueFrom:
           configMapKeyRef:
