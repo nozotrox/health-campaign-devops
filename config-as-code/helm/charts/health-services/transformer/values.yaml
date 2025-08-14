@@ -276,3 +276,11 @@ env: |
         key: project-factory
   - name: EGOV_PROJECT_FACTORY_SEARCH_ENDPOINT
     value: "project-factory/v1/project-type/search"
+  - name: SPRING_REDIS_HOST
+    value: redis.backbone
+  - name: SPRING_REDIS_PORT
+    value: "6379"
+  - name: SPRING_CACHE_TYPE
+    value: "redis"
+  - name: SPRING_CACHE_REDIS_TIME-TO-LIVE
+    value: "60"
