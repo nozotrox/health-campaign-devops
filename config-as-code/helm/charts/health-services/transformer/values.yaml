@@ -269,3 +269,10 @@ env: |
     value: transformer-save-attendance-register-health
   - name: EGOV_LOCALIZATION_MODULE_NAME
     value: hcm-boundary-microplan
+  - name: EGOV_PROJECT_FACTORY_HOST
+    valueFrom:
+      configMapKeyRef:
+      name: egov-service-host
+      key: project-factory
+  - name: EGOV_PROJECT_FACTORY_SEARCH_ENDPOINT
+    value: "project-factory/v1/project-type/search"
