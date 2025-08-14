@@ -739,10 +739,7 @@ plan-service:
   egov-mdms-service-v2-endpoint-key: "/mdms-v2/v2/_search"
   kafka-producer-max-request-size: "4000000"
   heap: "-Xmx1536m -Xms512m"
-  resources:
-    limits:
-      memory: "1.5Gi"
-      cpu: "1"
+  memory_limits: 1.7Gi
 
 census-service:
   kafka-producer-max-request-size: "4000000"
