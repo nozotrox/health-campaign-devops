@@ -741,6 +741,7 @@ project-factory:
   mdmsV2UpdateEndpoint: 'mdms-v2/v2/_update'
   validateCampaignIdInMetadata: 'false'
   notCreateUserIfAlreadyThere: 'false'
+  ExcludeHierarchyTypeFromBoundaryCodes: 'true'
 
 plan-service:
   egov-mdms-service-host-key: 'mdms-service-v2'
