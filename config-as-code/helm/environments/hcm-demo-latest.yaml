@@ -1018,6 +1018,9 @@ hcm-moz-impl:
    memory_limits: "2Gi"
    startDate: "11/09/2025"
    endDate: "30/09/2025"
+   projectTypeCode: "Bednet"
+   projectName: "Bednet"
+   projectTypeId: "dded35d2-76ac-4589-a313-f804448d8080"
    resources:
       requests:
          memory: "2Gi"
