@@ -33,6 +33,9 @@ java-enable-debug: true
 persist-yml-path: "file:///work-dir/health-campaign-config/egov-persister/hcm-moz-impl-persister.yml"
 startDate: "28/02/2025"
 endDate: "31/03/2025"
+projectTypeCode: "LLIN-mz"
+projectName: "LLIN-mz"
+projectTypeId: "dbd45c31-de9e-4e62-a9b6-abb818928fd1"
 
 # Additional Container Envs
 env: |
@@ -194,9 +197,9 @@ env: |
   - name: EGOV_DHIS2_ORGANISATION_UNIT_PROVINCES
     value: "SOFALA,NAMPULA"
   - name: EGOV_PROJECT_TYPE_ID
-    value: dbd45c31-de9e-4e62-a9b6-abb818928fd1
+    value: {{ index .Values "projectTypeId" | quote }}
   - name: EGOV_PROJECT_TYPE
-    value: LLIN-mz
+    value: {{ index .Values "projectTypeCode" | quote }}
   - name: EGOV_FACILITY_HOST
     valueFrom:
       configMapKeyRef:
@@ -250,7 +253,7 @@ env: |
   - name: EGOV_PROJECT_RESOURCE_UPDATE_PATH
     value: /project/resource/v1/bulk/_update
   - name: EGOV_SERVICE_REQUEST_PROJECTCODE
-    value: LLIN-mz
+    value: {{ index .Values "projectName" | quote }}
   - name: EGOV_HOUSEHOLD_HOST
     valueFrom:
       configMapKeyRef:
