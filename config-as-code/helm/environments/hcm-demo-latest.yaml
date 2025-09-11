@@ -1,5 +1,5 @@
 global:
-   domain: hcm-demo.digit.org ## Add your Domain Name "Eg: site.mydomain.com" Do not use the dummy domain
+   domain: health-demo.digit.org ## Add your Domain Name "Eg: site.mydomain.com" Do not use the dummy domain
    setup: fullsetup
 
 cluster-configs:
@@ -17,8 +17,8 @@ cluster-configs:
                 db-name: healthdemo ## Add db-name
                 db-url: "jdbc:postgresql://hcm-demo-latest-db.cqqfmghbjssw.ap-south-1.rds.amazonaws.com:5432/healthdemo" ## example: jdbc:postgresql://egov-demo.postgres.database.azure.com:5432/egov_demo
                 db-url-no-schema: "jdbc:postgresql://hcm-demo-latest-db.cqqfmghbjssw.ap-south-1.rds.amazonaws.com:5432/healthdemo"
-                domain: hcm-demo.digit.org ## Add your Domain Name
-                egov-services-fqdn-name: https://hcm-demo.digit.org/ ## Add your Domain Name
+                domain: health-demo.digit.org ## Add your Domain Name
+                egov-services-fqdn-name: https://health-demo.digit.org/ ## Add your Domain Name
                 kibana-host: http://release-name-kibana.es-cluster:5601/
                 kibana-base-path: kibana
                 egov-state-level-tenant-id: "mz"
@@ -619,7 +619,7 @@ egov-hrms:
   heap: '-Xmx512m -Xms256m'
   memory_limits: 512Mi
   employee-applink: "https://egov-demo.egovernments.org/employee/user/login"
-  microplanWebsiteLink: "https://hcm-demo.digit.org/console/employee/user/login"
+  microplanWebsiteLink: "https://health-demo.digit.org/console/employee/user/login"
   microplanImplementationPartner: "Console Team"
 
 
@@ -1005,11 +1005,11 @@ jupyterhub:
   ingress:
     enabled: true
     hosts:
-      - hcm-demo.digit.org
+      - health-demo.digit.org
     tls:
       - hosts:
-          - hcm-demo.digit.org
-        secretName: hcm-demo.digit.org-tls-certs
+          - health-demo.digit.org
+        secretName: health-demo.digit.org-tls-certs
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 hcm-moz-impl:
