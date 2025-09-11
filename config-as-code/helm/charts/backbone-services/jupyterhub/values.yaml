@@ -2,7 +2,7 @@
 # and non-blank strings. For more details, see the configuration reference.
 fullnameOverride: "jupyter"
 nameOverride:
-namespace: jupyter
+namespace: jhub
 # enabled is ignored by the jupyterhub chart itself, but a chart depending on
 # the jupyterhub chart conditionally can make use this config option as the
 # condition.
