@@ -334,7 +334,7 @@ env: |
   - name: EGOV_BOUNDARY_NAME
     value: Mozambique
   - name: EGOV_BOUNDARY_CODE
-    value: MICROPLAN_MO
+    value: mz
   - name: EGOV_MDMS_CREATE_HOST
     valueFrom:
       configMapKeyRef:
