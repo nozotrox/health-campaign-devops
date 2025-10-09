@@ -26,17 +26,12 @@ healthChecks:
 # Environment Variables for Proxy
 env: |
   - name: ELASTICSEARCH_URL
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: es-indexer-host-8
+    value: "https://elasticsearch-master.es-cluster:9200/"
   - name: KIBANA_URL
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: kibana-host
+    value: "http://release-name-kibana.es-cluster:5601/"
   - name: PROXY_PORT
     value: "3001"
+
         
 extraVolumes: |
   - name: js-injection
