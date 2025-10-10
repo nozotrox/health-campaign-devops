@@ -9,6 +9,10 @@ cluster-configs:
       
     root-ingress:
       cert-issuer: letsencrypt-prod
+      namespace: egov
+      appRoot: console-ui
+      serviceName: console-ui
+    
     configmaps:
         egov-config:
             namespace: [ egov, monitoring, es-cluster ]
