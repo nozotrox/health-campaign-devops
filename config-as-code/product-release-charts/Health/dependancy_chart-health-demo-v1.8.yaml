@@ -19,7 +19,6 @@ modules:
     dependencies:
       - "backbone"
       - "authn-authz"
-      - "frontend"
     services:
       - egovio/egov-accesscontrol:DIGIT-2.9-LTS-237578ce80-10
       - egovio/egov-enc-service-db:central-instance-e346023dcb-26
@@ -81,7 +80,6 @@ modules:
       - "dss"
       - "Other"
       - "frontend"
-      - "m_hcmconsole"
     services:
       - egovio/facility-db:v1.2.0-b8e24ab705-33
       - egovio/product-db:v1.2.0-8900208f3e-1
@@ -104,8 +102,8 @@ modules:
       - "backbone"
       - "authn-authz"
       - "core"
-      - "m-health"
       - "m_hcm_microplanning"
+      - "m_health"
     services:
       - egovio/project-factory-db:console-ac19a3af65-542
       - egovio/workbench-ui:console-20c70f79ed-354
@@ -114,7 +112,6 @@ modules:
       - "backbone"
       - "authn-authz"
       - "core"
-      - "m_hcmconsole"
       - "m_health"
     services:
       - plan-service:microplanning-dev-24a32aa371-292

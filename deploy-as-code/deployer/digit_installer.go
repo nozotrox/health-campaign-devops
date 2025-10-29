@@ -216,12 +216,12 @@ func getService(fullChart Digit, service string, set Set, svclist *list.List) {
 	for _, s := range fullChart.Modules {
 		if s.Name == service {
 			if set.Add(service) {
-				svclist.PushFront(service) //Add services into the list
 				if s.Dependencies != nil {
 					for _, deps := range s.Dependencies {
 						getService(fullChart, deps, set, svclist)
 					}
 				}
+                svclist.PushBack(service) //Add services into the list
 			}
 		}
 	}
