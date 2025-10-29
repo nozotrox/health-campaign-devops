@@ -13,7 +13,7 @@ cluster-configs:
         egov-config:
             namespace: [ egov, es-cluster, monitoring ]
             data:
-                db-host: <db_host_name> ## Add db-host name eg: egov-demo.database.azure.com
+                db-host: <db_host_name> ## Add db-host name example: egov-demo.database.azure.com
                 db-name: <db_name> ## Add db-name
                 db-url: "jdbc:postgresql://<db_host_name>/<db_name>" ## example: jdbc:postgresql://egov-demo.postgres.database.azure.com:5432/egov_demo
                 db-url-no-schema: "jdbc:postgresql://<db_host_name>/<db_name>" ## example: jdbc:postgresql://egov-demo.postgres.database.azure.com:5432/egov_demo
@@ -327,7 +327,7 @@ egov-indexer:
   memory_limits: "768Mi"
   initContainers:
     gitSync:
-      repo: "https://github.com/nitish-egov/health-campaign-config"        ##### Change repo url with Your fork Repo urls
+      repo: "https://github.com/egovernments/health-campaign-config"        ##### Change repo url with Your fork Repo urls
       branch: "DEMO"                                      ##### Change repo branch with Your fork Repo branches
   egov-indexer-yaml-repo-path: "file:///work-dir/health-campaign-config/egov-indexer/error-queue.yml,file:///work-dir/health-campaign-config/egov-indexer/product-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/individual-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/household-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-task-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/stock-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/facility-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/project-staff-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/egov-error-queue-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/pgr-services.yml,file:///work-dir/health-campaign-config/egov-indexer/service-request-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/transformer-pgr-services.yml,file:///work-dir/health-campaign-config/egov-indexer/referral-management-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/census-service-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/plan-service-indexer.yml,file:///work-dir/health-campaign-config/egov-indexer/attendance-service-indexer.yml"
 
@@ -339,7 +339,7 @@ egov-persister:
   persist-yml-path: "file:///work-dir/health-campaign-config/egov-persister/hrms-employee-persister.yml,file:///work-dir/health-campaign-config/egov-persister/product-persister.yml,file:///work-dir/health-campaign-config/egov-persister/project-persister.yml,file:///work-dir/health-campaign-config/egov-persister/individual-persister.yml,file:///work-dir/health-campaign-config/egov-persister/household-persister.yml,file:///work-dir/health-campaign-config/egov-persister/project-task-persister.yml,file:///work-dir/health-campaign-config/egov-persister/stock-persister.yml,file:///work-dir/health-campaign-config/egov-persister/facility-persister.yml,file:///work-dir/health-campaign-config/egov-persister/service-request-persister.yml,file:///work-dir/health-campaign-config/egov-persister/pgr-services-persister.yml,file:///work-dir/health-campaign-config/egov-persister/egov-workflow-v2-persister.yml,file:///work-dir/health-campaign-config/egov-persister/mdms-persister.yml,file:///work-dir/health-campaign-config/egov-persister/referral-management-persister.yml,file:///work-dir/health-campaign-config/egov-persister/project-factory-persister.yml,file:///work-dir/health-campaign-config/egov-persister/attendance-service-persister.yml,file:///work-dir/health-campaign-config/egov-persister/irs-persister.yml,file:///work-dir/health-campaign-config/egov-persister/census-service-persister.yml,file:///work-dir/health-campaign-config/egov-persister/plan-service-persister.yml,file:///work-dir/health-campaign-config/egov-persister/boundary-persister.yml"
   initContainers:
     gitSync:
-      repo: "https://github.com/nitish-egov/health-campaign-config"      ##### Change repo url with Your fork Repo url
+      repo: "https://github.com/egovernments/health-campaign-config"      ##### Change repo url with Your fork Repo url
       branch: "DEMO"                                    ##### Change repo branch with Your fork Repo branch
 
 egov-data-uploader:
@@ -383,7 +383,7 @@ report:
 pdf-service:
   initContainers:
     gitSync:
-      repo: "https://github.com/nitish-egov/health-campaign-config"     ##### Change repo url with Your fork Repo url
+      repo: "https://github.com/egovernments/health-campaign-config"     ##### Change repo url with Your fork Repo url
       branch: "DEMO"                                   ##### Change repo branch with Your fork Repo branch
   data-config-urls: "file:///work-dir/health-campaign-config/pdf-service/data-config/tradelicense-receipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/property-receipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/property-bill.json,file:///work-dir/health-campaign-config/pdf-service/data-config/tradelicense-bill.json,file:///work-dir/health-campaign-config/pdf-service/data-config/firenoc-receipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/pt-receipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/tl-receipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/consolidatedbill.json,file:///work-dir/health-campaign-config/pdf-service/data-config/consolidatedreceipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/tlapplication.json,file:///work-dir/health-campaign-config/pdf-service/data-config/passvehicle-certificate.json,file:///work-dir/health-campaign-config/pdf-service/data-config/ws-consolidatedacknowlegment.json,file:///work-dir/health-campaign-config/pdf-service/data-config/ws-consolidatedsewerageconnection.json,file:///work-dir/health-campaign-config/pdf-service/data-config/buildingpermit.json,file:///work-dir/health-campaign-config/pdf-service/data-config/ptmutationcertificate.json,file:///work-dir/health-campaign-config/pdf-service/data-config/tlrenewalcertificate.json,file:///work-dir/health-campaign-config/pdf-service/data-config/bpa-revocation.json,file:///work-dir/health-campaign-config/pdf-service/data-config/buildingpermit-low.json,file:///work-dir/health-campaign-config/pdf-service/data-config/misc-receipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/ws-applicationwater.json,file:///work-dir/health-campaign-config/pdf-service/data-config/ws-sanctionletter.json,file:///work-dir/health-campaign-config/pdf-service/data-config/ws-estimationnotice.json,file:///work-dir/health-campaign-config/pdf-service/data-config/ws-applicationsewerage.json,file:///work-dir/health-campaign-config/pdf-service/data-config/tlcertificate.json,file:///work-dir/health-campaign-config/pdf-service/data-config/detailed-estimate.json,file:///work-dir/health-campaign-config/pdf-service/data-config/deviation-statement.json,file:///work-dir/health-campaign-config/pdf-service/data-config/measurement-book.json,file:///work-dir/health-campaign-config/pdf-service/data-config/fsm-receipt.json,file:///work-dir/health-campaign-config/pdf-service/data-config/pqm-adhoctest.json,file:///work-dir/health-campaign-config/works/pdf-service/data-config/analysis-statement.json,file:///work-dir/health-campaign-config/works/pdf-service/data-config/utilization-statement.json,file:///work-dir/health-campaign-config/health/pdf-service/data-config/health-bill-payment.json"
   format-config-urls: "file:///work-dir/health-campaign-config/pdf-service/format-config/tradelicense-receipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/property-receipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/property-bill.json,file:///work-dir/health-campaign-config/pdf-service/format-config/tradelicense-bill.json,file:///work-dir/health-campaign-config/pdf-service/format-config/firenoc-receipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/pt-receipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/tl-receipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/consolidatedbill.json,file:///work-dir/health-campaign-config/pdf-service/format-config/consolidatedreceipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/tlapplication.json,file:///work-dir/health-campaign-config/pdf-service/format-config/passvehicle-certificate.json,file:///work-dir/health-campaign-config/pdf-service/format-config/ws-consolidatedacknowlegment.json,file:///work-dir/health-campaign-config/pdf-service/format-config/ws-consolidatedsewerageconnection.json,file:///work-dir/health-campaign-config/pdf-service/format-config/buildingpermit.json,file:///work-dir/health-campaign-config/pdf-service/format-config/ptmutationcertificate.json,file:///work-dir/health-campaign-config/pdf-service/format-config/tlrenewalcertificate.json,file:///work-dir/health-campaign-config/pdf-service/format-config/bpa-revocation.json,file:///work-dir/health-campaign-config/pdf-service/format-config/buildingpermit-low.json,file:///work-dir/health-campaign-config/pdf-service/format-config/misc-receipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/ws-applicationwater.json,file:///work-dir/health-campaign-config/pdf-service/format-config/ws-sanctionletter.json,file:///work-dir/health-campaign-config/pdf-service/format-config/ws-estimationnotice.json,file:///work-dir/health-campaign-config/pdf-service/format-config/ws-applicationsewerage.json,file:///work-dir/health-campaign-config/pdf-service/format-config/tlcertificate.json,file:///work-dir/health-campaign-config/pdf-service/format-config/detailed-estimate.json,file:///work-dir/health-campaign-config/pdf-service/format-config/deviation-statement.json,file:///work-dir/health-campaign-config/pdf-service/format-config/measurement-book.json,file:///work-dir/health-campaign-config/pdf-service/format-config/fsm-receipt.json,file:///work-dir/health-campaign-config/pdf-service/format-config/pqm-adhoctest.json,file:///work-dir/health-campaign-config/works/pdf-service/format-config/analysis-statement.json,file:///work-dir/health-campaign-config/works/pdf-service/format-config/utilization-statement.json,file:///work-dir/health-campaign-config/health/pdf-service/format-config/health-bill-payment.json"
@@ -793,74 +793,105 @@ redis:
 playground:
   replicas: 1
   images:
-    - egovio/playground:1.0
+    - egovio/playground:2.0
 
-# fluent-bit >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-fluent-bit:
-  images:
-    - fluent/fluent-bit:1.0.6
-  egov-services-log-topic: "egov-services-logs"
-  egov-infra-log-topic: "egov-infra-logs"
 
 ### Kafka Connect <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 kafka-connect:
   image:
     tag: "7.5.2"  
 
-# es-v1-cluster AWS >>>>>>>>>>>>>>>>>>>>>>>>>>>>
-elasticsearch-data-v1:
-  image:
-    tag: 6.6.2
+### Grafana >>>>>>>>>>>>>>>>>>>>
+grafana:
+  github:
+    allowed_organizations: ["egovernments"]
+    role_attribute_path: contains(groups[*], '@egovernments/micro-service-dev') && 'Viewer'
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+### Prometheus & Alertmanager >>>>>>>>>>>>>>>>>>>>
+prometheus:
+  retention: 7d
+  storageSpec:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: gp3
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 15Gi
+  alertmanager:
+    enabled: false
+  externalLabels:
+    cluster: <cluster-name>                          ## provide cluster name
+  additionalScrapeConfigs:
+    - job_name: 'nginx-ingress-metrics'
+      static_configs:
+        - targets: [ 'ingress-nginx-controller-metrics.egov:10254' ]
+    - job_name: 'redis-exporter'
+      static_configs:
+        - targets: [ 'prometheus-redis-exporter.backbone:9121' ]
+    - job_name: 'blackbox'
+      metrics_path: /probe
+      params:
+        module: [ http_2xx ]
+      static_configs:
+        - targets:
+            - <list of urls to be monitored>         ## add all URLs to monitor example -  https://demo.digit.org/digit-ui
+      relabel_configs:
+        - source_labels: [ __address__ ]
+          target_label: __param_target
+        - source_labels: [ __param_target ]
+          target_label: instance
+        - target_label: __address__
+          replacement: prometheus-blackbox-exporter:9115
+    - job_name: 'blackbox_exporter'
+      static_configs:
+        - targets: [ 'prometheus-blackbox-exporter:9115' ]
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+### loki-stack >>>>>>>>>>>>>>>>>>>>>>>>>>
+loki:
   persistence:
     enabled: true
-    aws:
-      - volumeId: "<elasticsearch-data_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<elasticsearch-data_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<elasticsearch-data_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+    accessModes:
+      - ReadWriteOnce
+    size: 15Gi
+  serviceAccount:
+    annotations: {}
+  additionalConfigs:
+    schema_config:
+      configs:
+        - from: 2020-10-24
+          store: boltdb-shipper
+          object_store: filesystem                 ## local filesystem as storage
+          schema: v11
+          index:
+            prefix: index_
+            period: 24h
+    storage_config:
+      boltdb_shipper:
+        active_index_directory: /data/loki/index
+        cache_location: /data/loki/index_cache
+        shared_store: filesystem                  ## local filesystem as storage
+        cache_ttl: 24h
+      filesystem:
+        directory: /data/loki/chunks
+    compactor:
+      working_directory: /data/loki/boltdb-shipper-compactor
+      shared_store: filesystem                    ## local filesystem as storage
+      retention_enabled: true
+      compaction_interval: 72h                    ## compaction in hours
+    table_manager:
+      retention_deletes_enabled: true
+      retention_period: 72h                       ## retention in hours
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-  esJavaOpts: "-Xmx1g -Xms1g"
-  resources:
-    requests:
-      cpu: "500m"
-      memory: "2Gi"
-    limits:
-      cpu: "2000m"
-      memory: "2Gi"
-
-### es-master-v1 AWS >>>>>>>>>>>>>>>>>>>>
-
-elasticsearch-master-v1:
-  replicas: 3
-  image:
-    tag: 6.6.2
-  persistence:
-    enabled: true
-    aws:
-      - volumeId: "<elasticsearch-master_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ##REPLACE: add zone
-      - volumeId: "<elasticsearch-master_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ##REPLACE: add zone
-      - volumeId: "<elasticsearch-master_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
- 
-  esJavaOpts: "-Xmx448m -Xms448m"
-  resources:
-    requests:
-      cpu: "300m"
-      memory: "896Mi"
-    limits:
-      cpu: "500m"
-      memory: "896Mi"
-
-es-curator:
-  schedule: "45 18 * * *"
-  images:
-    - bobrik/curator:5.6.0
-  es-host: "elasticsearch-client-v1.es-cluster"
-  logs-cleanup-enabled: "true"
-  jaeger-cleanup-enabled: "true"
-  logs-to-retain: "7"
+### kafka-ui >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+kafka-ui:
+  yamlApplicationConfig:
+    kafka:
+      clusters:
+        - name: kafka-kraft
+          bootstrapServers: release-name-kafka-controller-headless.kafka-kraft:9092
+          readonly: true
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
