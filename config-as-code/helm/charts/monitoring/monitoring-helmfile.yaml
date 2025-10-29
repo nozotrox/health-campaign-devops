@@ -1,9 +1,9 @@
 environments:
-  env:
+  demo:
     values:
       - namespace: monitoring
-      - ../environments/env-secrets.yaml
-      - ../environments/env.yaml
+      - ../../../environments/egov-demo.yaml
+      - ../../../environments/egov-demo-secrets.yaml
 ---
 repositories:
 - name: grafana
@@ -49,7 +49,7 @@ releases:
   - {{ .Values | toYaml | nindent 8 }}
   - storage:
       elasticsearch:
-        password: {{ .Values.secrets.elasticsearch.password }}
+        password: {{ index .Values "cluster-configs" "secrets" "elasticsearch-master-creds" "password" }}
   set:
     - name: query.ingress.hosts[0]
       value: "{{ .Values.global.domain }}"
@@ -66,8 +66,8 @@ releases:
         allowed_organizations: {{ .Values.grafana.github.allowed_organizations }}
         role_attribute_path: {{ .Values.grafana.github.role_attribute_path }}
   - envRenderSecret:
-      GF_AUTH_GITHUB_YAMLAPPLICATIONCONFIG_AUTH_OAUTH2_CLIENT_GITHUB_CLIENTID: {{ .Values.secrets.grafana.clientID }}
-      GF_AUTH_GITHUB_CLIENT_SECRET: {{ .Values.secrets.grafana.clientSecret }}
+      GF_AUTH_GITHUB_YAMLAPPLICATIONCONFIG_AUTH_OAUTH2_CLIENT_GITHUB_CLIENTID: {{ index .Values "cluster-configs" "secrets" "grafana" "clientID" }}
+      GF_AUTH_GITHUB_CLIENT_SECRET: {{ index .Values "cluster-configs" "secrets" "grafana" "clientSecret" }}
   set:
     - name: ingress.hosts[0]
       value: {{ .Values.global.domain | quote }}
