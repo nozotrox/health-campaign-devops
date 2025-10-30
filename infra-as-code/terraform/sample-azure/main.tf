@@ -99,6 +99,7 @@ module "kubernetes" {
   vm_size                   = "Standard_E2as_v5"
   node_count                = 4
   vnet_subnet_id            = azurerm_subnet.aks.id
+  os_disk_size_gb           = 64
 }
 
 module "postgres-db" {

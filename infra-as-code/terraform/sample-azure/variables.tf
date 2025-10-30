@@ -18,6 +18,7 @@ Environment name must:
 EOT
   }
 }
+
 variable "resource_group" {
   description = "Azure Resource Group name"
   type        = string
