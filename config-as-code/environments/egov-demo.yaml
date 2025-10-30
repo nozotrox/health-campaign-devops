@@ -895,3 +895,19 @@ kafka-ui:
           bootstrapServers: release-name-kafka-controller-headless.kafka-kraft:9092
           readonly: true
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+pgadmin:
+  replicas: 1
+  dbUrl: "<db_host_name>"
+  dbReadUrl: "<read_db_host_name>"
+  environment: "<cluster_name>"
+  maintenance-db-name: "<db_name>"
+  db-admin-username: "<db_username>"
+  db-read-username: "<db_read_username>"
+  cookie-protection: "False"
+  max-query-history: "50"
+  max-login-attempts: "5"
+  enable-save-password: "False"
+  persistence:
+    enabled: true
+    dataDirSize: "10Gi"
