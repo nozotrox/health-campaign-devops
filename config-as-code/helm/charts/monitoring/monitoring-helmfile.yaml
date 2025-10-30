@@ -75,7 +75,7 @@ releases:
       value: {{ .Values.global.domain | quote }}
 
 - name: blackbox
-  installed: false
+  installed: true
   namespace: {{ .Values.namespace | default "default-namespace" }}
   chart: prometheus-community/prometheus-blackbox-exporter
   version: 8.2.0

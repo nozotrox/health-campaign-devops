@@ -810,43 +810,43 @@ grafana:
 
 ### Prometheus & Alertmanager >>>>>>>>>>>>>>>>>>>>
 prometheus:
-  retention: 7d
-  storageSpec:
-    volumeClaimTemplate:
-      spec:
-        storageClassName: gp3
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 15Gi
-  alertmanager:
-    enabled: false
-  externalLabels:
-    cluster: <cluster-name>                          ## provide cluster name
-  additionalScrapeConfigs:
-    - job_name: 'nginx-ingress-metrics'
-      static_configs:
-        - targets: [ 'ingress-nginx-controller-metrics.egov:10254' ]
-    - job_name: 'redis-exporter'
-      static_configs:
-        - targets: [ 'prometheus-redis-exporter.backbone:9121' ]
-    - job_name: 'blackbox'
-      metrics_path: /probe
-      params:
-        module: [ http_2xx ]
-      static_configs:
-        - targets:
-            - <list of urls to be monitored>         ## add all URLs to monitor example -  https://demo.digit.org/digit-ui
-      relabel_configs:
-        - source_labels: [ __address__ ]
-          target_label: __param_target
-        - source_labels: [ __param_target ]
-          target_label: instance
-        - target_label: __address__
-          replacement: prometheus-blackbox-exporter:9115
-    - job_name: 'blackbox_exporter'
-      static_configs:
-        - targets: [ 'prometheus-blackbox-exporter:9115' ]
+  prometheusSpec:
+    retention: 7d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 30Gi
+    alertmanager:
+      enabled: false
+    externalLabels:
+      cluster: <cluster-name>                         ## provide cluster name
+    additionalScrapeConfigs:
+      - job_name: 'nginx-ingress-metrics'
+        static_configs:
+          - targets: [ 'ingress-nginx-controller-metrics.egov:10254' ]
+      - job_name: 'redis-exporter'
+        static_configs:
+          - targets: [ 'prometheus-redis-exporter.backbone:9121' ]
+      - job_name: 'blackbox'
+        metrics_path: /probe
+        params:
+          module: [ http_2xx ]
+        static_configs:
+          - targets:
+              - <list of urls to be monitored>         ## add all URLs to monitor example -  https://demo.digit.org/digit-ui
+        relabel_configs:
+          - source_labels: [ __address__ ]
+            target_label: __param_target
+          - source_labels: [ __param_target ]
+            target_label: instance
+          - target_label: __address__
+            replacement: blackbox-prometheus-blackbox-exporter:9115
+      - job_name: 'blackbox_exporter'
+        static_configs:
+          - targets: [ 'blackbox-prometheus-blackbox-exporter:9115' ]
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 ### loki-stack >>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -855,7 +855,7 @@ loki:
     enabled: true
     accessModes:
       - ReadWriteOnce
-    size: 15Gi
+    size: 30Gi
   serviceAccount:
     annotations: {}
   additionalConfigs:
