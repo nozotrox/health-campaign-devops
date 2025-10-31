@@ -2,16 +2,13 @@
 labels:
   app: "project-factory"
   group: "health"
-
 namespace: egov
-
 # Ingress Configs
 ingress:
   namespace: egov
   enabled: true
   zuul: true
   context: "project-factory"
-
 # Init Containers Configs
 initContainers:
   dbMigration:
@@ -19,13 +16,10 @@ initContainers:
     schemaTable: "project_factory_schema"
     image:
       repository: "project-factory-db"
-
-
 # Container Configs
 image:
   repository: "project-factory"
 replicas: "2"
-
 # Additional Container Envs
 env: |
   - name: KAFKA_BROKER_HOST
@@ -37,6 +31,11 @@ env: |
     value: save-campaign-details
   - name: KAFKA_UPDATE_CAMPAIGN_DETAILS_TOPIC
     value: update-campaign-details
+  - name: BASE_SECRET
+    valueFrom:
+      secretKeyRef:
+          name: project-factory
+          key: basesecret
   - name: DB_SCHEMA
     value: public
   - name: EGOV_MDMS_HOST
@@ -128,8 +127,12 @@ env: |
     value: filestore/v1/files 
   - name: EGOV_MDMS_V2_SEARCH_ENDPOINT
     value: {{ .Values.mdmsV2SearchEndpoint | default "mdms-v2/v2/_search" }}
+  - name: EGOV_MDMS_V2_CREATE_ENDPOINT
+    value: {{ .Values.mdmsV2CreateEndpoint | default "mdms-v2/v2/_create" }}
+  - name: EGOV_MDMS_V2_UPDATE_ENDPOINT
+    value: {{ .Values.mdmsV2UpdateEndpoint | default "mdms-v2/v2/_update" }}
   - name: EGOV_MDMS_V1_SEARCH_ENDPOINT
-    value: {{ .Values.mdmsV1SearchEndpoint | default "egov-mdms-service/v1/_search" }}
+    value: {{ .Values.mdmsV1SearchEndpoint | default "mdms-v2/v1/_search" }}
   - name: EGOV_IDGEN_PATH
     value: egov-idgen/id/_generate
   - name: EGOV_MDMS_SCHEMA_PATH
@@ -144,6 +147,8 @@ env: |
     value: project/v1/_search
   - name: HEALTH_PROJECT_CREATE_PATH
     value: project/v1/_create
+  - name: HEALTH_PROJECT_UPDATE_PATH
+    value: project/v1/_update
   - name: EGOV_PROJECT_STAFF_CREATE_PATH
     value: project/staff/v1/_create
   - name: EGOV_HRMS_EMPLOYEE_CREATE_PATH
@@ -166,16 +171,22 @@ env: |
     value: facility/v1/bulk/_create
   - name: EGOV_HEALTH_INDIVIDUAL_SEARCH
     value: individual/v1/_search
+  - name: EGOV_HEALTH_PROJECT_FACILITY_SEARCH
+    value: project/facility/v1/_search
+  - name: EGOV_HEALTH_PROJECT_STAFF_SEARCH
+    value: project/staff/v1/_search
+  - name: EGOV_HEALTH_PROJECT_FACILITY_BULK_DELETE
+    value: project/facility/v1/bulk/_delete
+  - name: EGOV_HEALTH_PROJECT_STAFF_BULK_DELETE
+    value: project/staff/v1/bulk/_delete
   - name: EGOV_PLAN_FACILITY_SEARCH
     value: plan-service/plan/facility/_search
   - name: EGOV_PLAN_FACILITY_CONFIG_SEARCH
     value: plan-service/config/_search
-
   - name: EGOV_CENSUS_SEARCH
     value: census-service/_search
   - name: EGOV_PLAN_SEARCH
     value: plan-service/plan/_search
-
   - name: CMP_IDGEN_FORMAT
     value: CMP-[cy:yyyy-MM-dd]-[SEQ_EG_CMP_ID]
   - name: CMP_IDGEN_IDNAME
@@ -240,7 +251,6 @@ env: |
     value: "5432"
   - name: DB_SCHEMA
     value: public
-
   - name: BOUNDARY_MAIN_SHEET_NAME
     value: "Boundary Data"
   - name: SPLIT_BOUNDARIES_ON
@@ -266,7 +276,7 @@ env: |
   - name: APP_LOG_LEVEL
     value: {{ .Values.logLevel | default "info" }} 
   - name: APP_MAX_DEBUG_CHAR
-    value: "{{ .Values.maxDebugChar | default "500" }}"
+    value: "{{ .Values.maxDebugChar | default "10000" }}"
   - name: DEBUG
     value: "{{ .Values.DEBUG | default "false" }}"
   - name: READ_ME_TAB
@@ -285,7 +295,6 @@ env: |
     value: "6379"
   - name: REDIS_HOST
     value: "redis.backbone"
-
   - name: AUTO_RETRY_IF_HTTP_ERROR
     value: "socket hang up"
   - name: ENABLE_DYNAMIC_TEMPLATE_FOR
@@ -300,3 +309,5 @@ env: |
     value: {{ .Values.validateCampaignIdInMetadata | default "false" | quote }}
   - name: NOT_CREATE_USER_IF_ALREADY_THERE
     value: {{ .Values.notCreateUserIfAlreadyThere | default "false" | quote }}
+  - name: INCOMING_REQUEST_PAYLOAD_LIMIT
+    value: 5mb
