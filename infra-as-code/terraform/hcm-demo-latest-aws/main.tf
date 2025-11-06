@@ -11,7 +11,11 @@ terraform {
   required_providers {
     kubectl = {
       source  = "gavinbunney/kubectl"
-      version = "~> 1.14.0" 
+      version = "~> 1.14.0"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~> 2.9"
     }
   }
 }
@@ -75,12 +79,16 @@ module "eks" {
 module "eks_managed_node_group" {
   depends_on = [module.eks]
   source = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
+  version = "~> 20.0"
   name            = "${var.cluster_name}-spot"
   cluster_name    = var.cluster_name
   cluster_version = var.kubernetes_version
+  cluster_endpoint = module.eks.cluster_endpoint
+  cluster_auth_base64 = module.eks.cluster_certificate_authority_data
   subnet_ids      = [module.network.private_subnets[local.az_index_in_network]]
   vpc_security_group_ids  = [module.eks.node_security_group_id]
   cluster_service_cidr = module.eks.cluster_service_cidr
+  ami_type        = "AL2023_x86_64_STANDARD"
   use_custom_launch_template = true
   launch_template_name = "${var.cluster_name}-lt"
   block_device_mappings = {
@@ -220,6 +228,7 @@ resource "aws_iam_role_policy" "karpenter_policy" {
 module "karpenter" {
   count = var.enable_karpenter ? 1 : 0
   source = "terraform-aws-modules/eks/aws//modules/karpenter"
+  version = "~> 20.0"
   cluster_name = module.eks.cluster_name
 
   create_node_iam_role = false

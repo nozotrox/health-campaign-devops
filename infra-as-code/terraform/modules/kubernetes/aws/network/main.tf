@@ -14,6 +14,7 @@ resource "aws_vpc" "vpc" {
     tomap({
       Name = "${var.cluster_name}"
       "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+      "KubernetesCluster" = "${var.cluster_name}"
     })
   }"
 }
@@ -152,6 +153,7 @@ resource "aws_security_group" "rds_db_sg" {
   tags = "${
     tomap({
       "Name" = "db-${var.cluster_name}"
+      "KubernetesCluster" = "${var.cluster_name}"
     })
   }"
 }
