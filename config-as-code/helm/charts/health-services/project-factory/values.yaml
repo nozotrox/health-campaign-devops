@@ -191,13 +191,11 @@ env: |
     value: CMP-[cy:yyyy-MM-dd]-[SEQ_EG_CMP_ID]
   - name: CMP_IDGEN_IDNAME
     value: campaign.number
-    
   - name: EGOV_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-config
         key: egov-services-fqdn-name
-  
   - name: "DB_URL"
   {{- if eq .Values.namespace "health" }}
     valueFrom:
@@ -298,7 +296,7 @@ env: |
   - name: AUTO_RETRY_IF_HTTP_ERROR
     value: "socket hang up"
   - name: ENABLE_DYNAMIC_TEMPLATE_FOR
-    value: {{ .Values.enableDynamicTemplate | default "" }}
+    value: {{ .Values.enableDynamicTemplate | default "false" | quote }}
   - name: IS_CALL_GENERATE_WHEN_DELIVERY_CONDITIONS_DIFFER
     value: {{ .Values.CallGenerateWhenDeliveryConditionsDiffer | default "false" | quote }}
   - name: EXCLUDE_HIERARCHY_TYPE_FROM_BOUNDARY_CODES

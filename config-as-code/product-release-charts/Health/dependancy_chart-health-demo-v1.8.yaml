@@ -9,6 +9,7 @@ modules:
       - elasticsearch-data
       - elasticsearch-master
       - kibana
+      - pgadmin
   - name: authn-authz
     services:
       - redis
@@ -50,6 +51,7 @@ modules:
       - "business"
     services:
       - egovio/digit-ui:health-dashboard-digit-ui-921afc69c7-758
+      - egovio/dashboard-ui:master-613926d
   - name: m_pgr             #PGR
     dependencies:
       - "core"
@@ -96,7 +98,7 @@ modules:
       - egovio/health-expense-calculator-db:v1.0.0-172f7e79e-55
       - payments-ui:console-c692a067dd-57
       - pdf-service:indexer-bpa-fix-vinoth-88d0942e6a-42
-      - egovio/beneficiary-idgen-db:v1.0.0-5933b8db0e-7
+      - egovio/beneficiary-idgen:master-cc431fb
   - name: m_hcmconsole
     dependencies:
       - "backbone"
@@ -105,8 +107,8 @@ modules:
       - "m_hcm_microplanning"
       - "m_health"
     services:
-      - egovio/project-factory-db:console-ac19a3af65-542
-      - egovio/workbench-ui:console-20c70f79ed-354
+      - egovio/project-factory:v0.4.0-35afbbb1a5-582
+      - egovio/workbench-ui:v0.4.0-dd005ceec7-588
   - name: m_hcm_microplanning
     dependencies:
       - "backbone"
