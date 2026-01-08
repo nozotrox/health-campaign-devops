@@ -41,17 +41,17 @@ env: |
   - name: SERVER_PORT
     value: "8080"
   - name: SECURITY_BASIC_ENABLED
-    value: "false"
+    value: "false"  
   - name: MANAGEMENT_SECURITY_ENABLED
-    value: "false"
+    value: "false" 
   - name: FILE_STORAGE_MOUNT_PATH
     value: {{ index .Values "file-storage-mount-path" | quote }}
   - name: TEMP_FOLDER_PATH
     value: "/tmp"
   - name: SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE
     value: "250MB"
-
-  # NFS storage flag and related envs
+  - name: ISNFSSTORAGEENABLED
+    value: {{ index .Values "is-nfs-enabled" | quote }}
   {{- if index .Values "is-nfs-enabled" }}
   - name: ISNFSSTORAGEENABLED
     value: "true"
@@ -62,21 +62,13 @@ env: |
         key: egov-services-fqdn-name
   - name: SOURCE_DISK
     value: "diskStorage"
-  {{- else }}
-  - name: ISNFSSTORAGEENABLED
-    value: "false"
   {{- end }}
-
-  # S3 storage flag
+  - name: ISS3ENABLED
+    value: {{ index .Values "is-s3-enabled" | quote }}
   {{- if index .Values "is-s3-enabled" }}
   - name: ISS3ENABLED
     value: "true"
-  {{- else }}
-  - name: ISS3ENABLED
-    value: "false"
-  {{- end }}
-
-  # AWS / MinIO credentials
+  {{- end }}  
   {{- if index .Values "minio-enabled" }}
   - name: AWS_KEY
     valueFrom:
@@ -93,7 +85,7 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: minio-url
-  {{- else }}
+  {{else}}
   - name: AWS_KEY
     valueFrom:
       secretKeyRef:
@@ -107,30 +99,22 @@ env: |
   - name: MINIO_URL
     value: {{ index .Values "aws.s3.url" | quote }}
   {{- end }}
-
-  # Optional bucket configuration
   {{- if index .Values "is-bucket-fixed" }}
   - name: IS_BUCKET_FIXED
     value: {{ index .Values "is-bucket-fixed" | quote }}
   {{- end }}
-
   {{- if index .Values "fixed-bucketname" }}
   - name: FIXED_BUCKETNAME
     value: {{ index .Values "fixed-bucketname" | quote }}
   {{- end }}
-
-  # Java options and allowed formats
   - name: JAVA_OPTS
     value: {{ index .Values "heap" | quote }}
   - name: ALLOWED_FORMATS_MAP
     value: {{ index .Values "allowed-file-formats-map" | quote }}
   - name: ALLOWED_FORMATS
-    value: {{ index .Values "allowed-file-formats" | quote }}
-
-  # Optional presigned URL validity
-  {{- if index .Values "filestore-url-validity" }}
-  - name: PRESIGNED_URL_EXPIRY_TIME_IN_SECS
-    value: {{ index .Values "filestore-url-validity" | quote }}
-  {{- end }}
-  
+    value: {{ index .Values "allowed-file-formats" | quote }} 
+  {{- if index .Values "filestore-url-validity" }}   
+  - name: PRESIGNED_URL_EXPIRY_TIME_IN_SECS     
+    value: {{ index .Values "filestore-url-validity" | quote }}   
+  {{- end }}  
 
