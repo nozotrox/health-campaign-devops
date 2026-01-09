@@ -15,4 +15,4 @@ db_username: "testhealth"
 domain_name: "hcm-console.digit.org"
 
 # Replace with the name you want to give to your S3 bucket which is used to store the terraform states
-terraform_state_bucket_name: "testhealth-k8supgrade-digit-buckets-nozotrox"
+terraform_state_bucket_name: "testhealth-k8supgrade-digit-buckets-nztrx"
