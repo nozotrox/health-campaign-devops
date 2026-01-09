@@ -31,7 +31,7 @@ variable "kubernetes_version" {
 
 variable "instance_types" {
   description = "Arry of instance types for SPOT instances"
-  default = ["t4g.small","c7i-flex.large","t3.micro","t4g.micro","t3.small","m7i-flex.large "]
+  default = ["r5ad.xlarge", "m5ad.xlarge"]
 }
 
 variable "min_worker_nodes" {
