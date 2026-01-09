@@ -140,8 +140,9 @@ jobs:
 
       - name: Show Terraform State
         run: terraform state list
-
+        working-directory: infra-as-code/terraform/sample-aws/remote-state
       - name: Remove deleted EKS cluster from state
+        working-directory: infra-as-code/terraform/sample-aws/remote-state
         run: |
           terraform state rm module.eks.aws_eks_cluster.this[0]
 
