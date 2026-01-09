@@ -10,7 +10,7 @@ annotations:
     - name: kafka-exporter
       image: docker.io/bitnami/kafka-exporter:1.7.0-debian-11-r132
     - name: kafka
-      image: docker.io/bitnami/kafka:3.6.0-debian-11-r0
+      image: apache/kafka:4.0.0
     - name: kubectl
       image: docker.io/bitnami/kubectl:1.28.2-debian-11-r16
     - name: os-shell
